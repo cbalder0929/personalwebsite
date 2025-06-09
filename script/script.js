@@ -3,12 +3,47 @@ const galleryControlsContainer = document.querySelector('.gallery-controls');
 const galleryControls = ['previous', 'next'];
 const galleryItems = document.querySelectorAll('.gallery-item');
 
+
 class Carousel {
 	constructor(container, items, controls){
 		this.carouselContainer = container;
 		this.carouselControls = controls;
 		this.carouselArray = [...items];
+		
+		// Touch event variables
+		this.touchStartX = 0;
+		this.touchEndX = 0;
+		this.minSwipeDistance = 50; // minimum distance for swipe
+		
+		// Initialize touch events
+		this.initTouchEvents();
 	}
+
+	initTouchEvents() {
+		this.carouselContainer.addEventListener('touchstart', (e) => {
+			this.touchStartX = e.changedTouches[0].screenX;
+		}, { passive: true });
+
+		this.carouselContainer.addEventListener('touchend', (e) => {
+			this.touchEndX = e.changedTouches[0].screenX;
+			this.handleSwipe();
+		}, { passive: true });
+	}
+
+	handleSwipe() {
+		const swipeDistance = this.touchEndX - this.touchStartX;
+		
+		if (Math.abs(swipeDistance) < this.minSwipeDistance) return;
+		
+		if (swipeDistance > 0) {
+			// Swipe right - show previous
+			this.setCurrentState({ className: 'gallery-controls-previous' });
+		} else {
+			// Swipe left - show next
+			this.setCurrentState({ className: 'gallery-controls-next' });
+		}
+	}
+
 	updateGallery(){
 		this.carouselArray.forEach(el => {
 			el.classList.remove('gallery-item-1');
