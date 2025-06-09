@@ -1,6 +1,6 @@
 const galleryContainer = document.querySelector('.gallery-container');
 const galleryControlsContainer = document.querySelector('.gallery-controls');
-const galleryControls = ['prev', 'next'];
+const galleryControls = ['previous', 'next'];
 const galleryItems = document.querySelectorAll('.gallery-item');
 
 class Carousel {
@@ -31,7 +31,7 @@ class Carousel {
 				this.setCurrentState({ className: 'gallery-controls-next' });
 			} else {
 				// Swipe right - previous
-				this.setCurrentState({ className: 'gallery-controls-prev' });
+				this.setCurrentState({ className: 'gallery-controls-previous' });
 			}
 			this.startX = 0;
 		}
