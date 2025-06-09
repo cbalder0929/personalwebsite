@@ -1,6 +1,6 @@
 const galleryContainer = document.querySelector('.gallery-container');
 const galleryControlsContainer = document.querySelector('.gallery-controls');
-const galleryControls = ['previous', 'next'];
+const galleryControls = ['prev', 'next'];
 const galleryItems = document.querySelectorAll('.gallery-item');
 
 class Carousel {
@@ -8,7 +8,35 @@ class Carousel {
 		this.carouselContainer = container;
 		this.carouselControls = controls;
 		this.carouselArray = [...items];
+		
+		// Add touch events
+		this.startX = 0;
+		this.carouselContainer.addEventListener('touchstart', this.handleTouchStart.bind(this));
+		this.carouselContainer.addEventListener('touchmove', this.handleTouchMove.bind(this));
 	}
+
+	handleTouchStart(e) {
+		this.startX = e.touches[0].clientX;
+	}
+
+	handleTouchMove(e) {
+		if (!this.startX) return;
+		
+		const currentX = e.touches[0].clientX;
+		const diff = this.startX - currentX;
+
+		if (Math.abs(diff) > 50) { // Minimum swipe distance
+			if (diff > 0) {
+				// Swipe left - next
+				this.setCurrentState({ className: 'gallery-controls-next' });
+			} else {
+				// Swipe right - previous
+				this.setCurrentState({ className: 'gallery-controls-prev' });
+			}
+			this.startX = 0;
+		}
+	}
+
 	updateGallery(){
 		this.carouselArray.forEach(el => {
 			el.classList.remove('gallery-item-1');
