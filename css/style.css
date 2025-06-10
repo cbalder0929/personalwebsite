@@ -66,6 +66,7 @@ body {
 
 .gallery {
 	width: 100%;
+	overflow: hidden;
 }
 
 .gallery-container {
