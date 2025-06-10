@@ -3,14 +3,14 @@ html, body {
 	margin:0px;
 	padding:0px;
 	height:100%;
-	overflow-x: hidden;
+	
 }
 
 html {
 		/* Standard text-settings below */
 	font-size: 1em;
     line-height: 1.4em;
-	heigth: 200vh;
+	
 }
 
 
@@ -82,6 +82,7 @@ header img {
 
 .gallery {
 	width: 100%;
+	overflow: hidden;
 }
 
 .gallery-container {
