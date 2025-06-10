@@ -1,0 +1,311 @@
+/* Basic CSS resets -- leveling slight inconsistencies in browsers */
+html, body {
+	margin:0px;
+	padding:0px;
+	height:100%;
+	overflow: hidden;
+}
+
+html {
+		/* Standard text-settings below */
+	font-size: 1em;
+    line-height: 1.4em;
+}
+
+
+
+
+/* Mobile First CSS: we'll design for phone sizes first, then add media queries for tablets and desktop computers later */
+
+body {
+	
+	
+}
+
+.header {
+	background-color: #1E5385;
+	position: relative;
+  	display: flex;
+  	align-items: center;
+  	justify-content: center;
+  	height: 100px;
+  	padding: 0 1rem;
+
+}
+.logo {
+    position: absolute;
+    left: 1rem; 
+    top: 50%;
+    transform: translateY(-50%);
+  
+}
+
+.headerTitles {
+    color: #F0EBDB;
+
+
+
+}
+header img {
+	width: 100px;
+
+}
+.profilePic img {
+    width: 200px;
+    border-radius: 200px;
+}
+
+.footer-nav {
+	background-color: #1E5385;
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	display: flex;
+	justify-content: space-around;
+	padding: 10px 0;
+
+
+
+}
+.nav-button {
+  color: white;
+  text-decoration: none;
+  font-size: 24px;
+}
+
+.introText {
+	
+
+
+}
+
+.gallery {
+	width: 100%;
+}
+
+.gallery-container {
+	align-items: center;
+	display: flex;
+	height: 400px;
+	margin: 0 auto;
+	max-width: 1000px;
+	position: relative;
+	
+}
+
+.gallery-item {
+	height: 200px;
+	opacity: 0;
+	position: absolute;
+	transition: all 0.3s ease-in-out;
+	width: 330px;
+	z-index: 0;
+	border-radius: 15px;
+	background-size: contain;
+}
+.gallery-item-1 {
+	left: 15%;
+	opacity: .4;
+	transform: translateX(-50%);
+}
+.gallery-item-2, .gallery-item-4{
+	height: 250px;
+	opacity: 0.8;
+	width: 380px;
+	z-index: 1;
+
+}
+.gallery-item-2 {
+	left: 30%;
+	transform: translateX(-50%);
+
+}
+.gallery-item-3 {
+	box-shadow: -2px 5px 33px 6px rgba( 0, 0, 0, .35);
+	height: 300px;
+	opacity: 1;
+	left: 50%;
+	transform: translate(-50%);
+	width: 430px;
+	z-index: 2;
+
+
+}
+.gallery-item-4 {
+	left: 70%;
+	transform: translateX(-50%);
+}
+.gallery-item-5 {
+	left: 85%;
+	opacity:0.4;
+	transform: translateX(-50%);
+}
+.gallery-controls {
+	display: flex;
+	justify-content: center;
+	margin: 25px 0 ;
+	height: 100px;
+
+}
+.gallery-controls button {
+	background-color: transparent;
+	border: 0;
+	cursor: pointer;
+	font-size: 30px;
+	margin: 0 50px;
+	padding: 0 12px;
+	text-transform: capitalize;
+}
+.gallery-controls-button:focus {
+	outline: none;
+
+}
+
+.gallery-controls-previous {
+	position: relative;
+
+}
+.gallery-controls-previous::before {
+	border: solid #000;
+	border-width: 0 5px 5px 0;
+	content: '';
+	display: inline-block;
+	height: 5px;
+	left: -30px;
+	padding: 10px;
+	position: absolute;
+	top: 25%;
+	transform: rotate(135deg) translateY(-50%);
+	transition: left 0.15s ease-in-out;
+	width: 5px;
+}
+.gallery-controls-previous:hover::before {
+	left: -40px;
+}
+.gallery-controls-next {
+	position: relative;
+	
+}
+.gallery-controls-next::before {
+	border: solid #000;
+	border-width: 0 5px 5px 0;
+	content: '';
+	display: inline-block;
+	height: 5px;
+	padding: 10px;
+	position: absolute;
+	right: -30px;
+	top: 45%;
+	transform: rotate(-45deg) translateY(-50%);
+	transition: right 0.15s ease-in-out;
+	width: 5px;
+}
+.gallery-controls-next:hover::before {
+	right: -40px;
+}
+.gallery-nav {
+	bottom: -15px;
+	display: flex;
+	justify-content: center;
+	list-style: none;
+	padding: 0;
+	position: absolute;
+	width: 100%;
+	
+}
+
+.gallery-nav li {
+	background: #ccc;
+	border-radius: 50%;
+	height: 10px;
+	margin: 0 16px;
+	width:10px;
+
+}
+
+.gallery-nav li.gallery-item-selected {
+	background: #555;
+	
+
+}
+
+
+
+
+/* Class for making YouTube/Vimeo videos responsive */
+
+figure.responsive {
+    position: relative;
+    padding-bottom: 56.25%;  /* 16:9 */
+    height: 0px;
+    overflow: hidden;
+    max-width: 100%;
+}
+
+figure.responsive iframe {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+}
+
+
+
+/* A better looking default horizontal rule */
+hr {
+    display: block;
+    height: 1px;
+    border: 0px;
+    border-top: 1px solid #ccc;
+    margin: 1em 0px;
+    padding: 0px;
+}
+
+
+
+/* ========================================
+MEDIA QUERIES!
+You can adjust the min-width numbers below, and add as many new media queries as you need.
+======================================== */
+
+/* Minimum width for portrait tablets and large phone screens.  */
+@media all and (min-width: 600px) {
+	
+	
+	
+	
+} /* closes 600px+ */
+
+
+
+/* Minimum width for landscape laptops. */
+@media all and (min-width: 768px) {
+	
+	
+	
+	
+} /* closes 768px+ */
+
+
+
+/* Minimum width for larger tablets, laptops and desktops. */
+@media all and (min-width: 992px) {
+	
+	
+	
+	
+} /* closes 992px+ */
+
+
+
+/* Minimum width for larger desktops. */
+@media all and (min-width: 1200px) {
+	
+	
+	
+	
+} /* closes 1200px+ */
+
+
+
