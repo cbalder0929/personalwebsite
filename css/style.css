@@ -301,7 +301,34 @@ You can adjust the min-width numbers below, and add as many new media queries as
 	height: 100px;
 
 }
-	
+.gallery-container {
+    transform: scale(0.8);
+    transform-origin: center top;
+    height: 320px; /* adjust if needed */
+  }
+
+  .gallery-item {
+    width: 240px;
+    height: 150px;
+  }
+
+  .gallery-item-2, .gallery-item-4 {
+    width: 280px;
+    height: 180px;
+  }
+
+  .gallery-item-3 {
+    width: 320px;
+    height: 210px;
+  }
+
+  .gallery-item-1,
+  .gallery-item-2,
+  .gallery-item-3,
+  .gallery-item-4,
+  .gallery-item-5 {
+    left: auto;
+  }	
 	
 	
 } /* closes 600px+ */
