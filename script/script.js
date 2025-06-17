@@ -4,34 +4,34 @@ const galleryControls = ['previous', 'next'];
 const galleryItems = document.querySelectorAll('.gallery-item');
 
 class Carousel {
-	constructor(container, items, controls){
+	constructor(container, items, controls) {
 		this.carouselContainer = container;
 		this.carouselControls = controls;
 		this.carouselArray = [...items];
 	}
-	updateGallery(){
+
+	updateGallery() {
 		this.carouselArray.forEach(el => {
-			el.classList.remove('gallery-item-1');
-			el.classList.remove('gallery-item-2');
-			el.classList.remove('gallery-item-3');
-			el.classList.remove('gallery-item-4');
-			el.classList.remove('gallery-item-5');
+			el.classList.remove('gallery-item-1', 'gallery-item-2', 'gallery-item-3', 'gallery-item-4', 'gallery-item-5');
 		});
-		
+
 		this.carouselArray.slice(0, 5).forEach((el, i) => {
 			el.classList.add(`gallery-item-${i + 1}`);
 		});
 	}
-	
-	setCurrentState(direction){
-		if(direction.className == 'gallery-controls-previous'){
+
+	setCurrentState(direction) {
+		const className = direction.className || '';
+
+		if (className.includes('previous')) {
 			this.carouselArray.unshift(this.carouselArray.pop());
-		}else{
+		} else if (className.includes('next')) {
 			this.carouselArray.push(this.carouselArray.shift());
 		}
+
 		this.updateGallery();
 	}
-	
+
 	setControls() {
 		this.carouselControls.forEach(control => {
 			const button = document.createElement('button');
@@ -40,8 +40,8 @@ class Carousel {
 			galleryControlsContainer.appendChild(button);
 		});
 	}
-	
-	useControls(){
+
+	useControls() {
 		const triggers = [...galleryControlsContainer.childNodes];
 		triggers.forEach(control => {
 			control.addEventListener('click', e => {
@@ -52,15 +52,15 @@ class Carousel {
 	}
 }
 
+// Initialize the carousel
 const exampleCarousel = new Carousel(galleryContainer, galleryItems, galleryControls);
-
 exampleCarousel.setControls();
 exampleCarousel.useControls();
 
+// Add swipe support for mobile
 let startX = 0;
 let endX = 0;
 
-// Listen for swipe on the carousel container
 galleryContainer.addEventListener('touchstart', (e) => {
 	startX = e.touches[0].clientX;
 });
@@ -70,10 +70,11 @@ galleryContainer.addEventListener('touchend', (e) => {
 	const diff = startX - endX;
 
 	if (diff > 50) {
-		// Swiped left → go to next image
+		// Swiped left
 		exampleCarousel.setCurrentState({ className: 'gallery-controls-next' });
 	} else if (diff < -50) {
-		// Swiped right → go to previous image
+		// Swiped right
 		exampleCarousel.setCurrentState({ className: 'gallery-controls-previous' });
 	}
 });
+
