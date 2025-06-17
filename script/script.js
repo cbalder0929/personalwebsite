@@ -56,3 +56,24 @@ const exampleCarousel = new Carousel(galleryContainer, galleryItems, galleryCont
 
 exampleCarousel.setControls();
 exampleCarousel.useControls();
+
+let startX = 0;
+let endX = 0;
+
+// Listen for swipe on the carousel container
+galleryContainer.addEventListener('touchstart', (e) => {
+	startX = e.touches[0].clientX;
+});
+
+galleryContainer.addEventListener('touchend', (e) => {
+	endX = e.changedTouches[0].clientX;
+	const diff = startX - endX;
+
+	if (diff > 50) {
+		// Swiped left → go to next image
+		exampleCarousel.setCurrentState({ className: 'gallery-controls-next' });
+	} else if (diff < -50) {
+		// Swiped right → go to previous image
+		exampleCarousel.setCurrentState({ className: 'gallery-controls-previous' });
+	}
+});
