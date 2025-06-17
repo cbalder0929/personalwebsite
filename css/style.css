@@ -94,11 +94,11 @@ header img {
 }
 
 .gallery-item {
-	height: 200px;
+	height: 100px;
 	opacity: 0;
 	position: absolute;
 	transition: all 0.3s ease-in-out;
-	width: 330px;
+	width: 230px;
 	z-index: 0;
 	border-radius: 15px;
 	background-size: contain;
@@ -109,9 +109,9 @@ header img {
 	transform: translateX(-50%);
 }
 .gallery-item-2, .gallery-item-4{
-	height: 250px;
+	height: 150px;
 	opacity: 0.8;
-	width: 380px;
+	width: 280px;
 	z-index: 1;
 
 }
@@ -122,11 +122,11 @@ header img {
 }
 .gallery-item-3 {
 	box-shadow: -2px 5px 33px 6px rgba( 0, 0, 0, .35);
-	height: 300px;
+	height: 100px;
 	opacity: 1;
 	left: 50%;
 	transform: translate(-50%);
-	width: 430px;
+	width: 230px;
 	z-index: 2;
 
 
