@@ -141,7 +141,7 @@ header img {
 	transform: translateX(-50%);
 }
 .gallery-controls {
-	display: flex;
+	display: none;
 	justify-content: center;
 	margin: 25px 0 ;
 	height: 100px;
@@ -294,7 +294,13 @@ You can adjust the min-width numbers below, and add as many new media queries as
 
 /* Minimum width for portrait tablets and large phone screens.  */
 @media all and (min-width: 600px) {
-	
+	.gallery-controls {
+	display: flex;
+	justify-content: center;
+	margin: 25px 0 ;
+	height: 100px;
+
+}
 	
 	
 	
