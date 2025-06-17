@@ -122,11 +122,11 @@ header img {
 }
 .gallery-item-3 {
 	box-shadow: -2px 5px 33px 6px rgba( 0, 0, 0, .35);
-	height: 100px;
+	height: 300px;
 	opacity: 1;
 	left: 50%;
 	transform: translate(-50%);
-	width: 230px;
+	width: 330px;
 	z-index: 2;
 
 
