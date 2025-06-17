@@ -80,7 +80,7 @@ header img {
 
 .gallery {
 	width: 100%;
-	overflow: hidden;
+	overflow: visible;
 }
 
 .gallery-container {
