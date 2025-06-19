@@ -359,7 +359,7 @@ hr {
   justify-content: center;
   line-height: 1em;
   max-width: 100%;
-  min-width: 100px;
+  min-width: 25%;
   padding: 3px;
   text-decoration: none;
   user-select: none;
